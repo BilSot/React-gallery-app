@@ -1,13 +1,18 @@
 body {
+  background-image: url("../images/dots-shape-right.png"), url("../images/dots-shape-left.png");
+  background-position: right top, left top;
+  background-repeat: no-repeat, no-repeat;
+  background-color: lightgray;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   color: #3f4850;
+  //min-height: 91vh;
 }
 
 h2 {
   font-size: 2em;
   margin: 52px 0 40px;
-  text-transform: capitalize;
+  //text-transform: capitalize;
 }
 
 ul {
@@ -27,7 +32,7 @@ a {
 
 .search-form button {
   outline: none;
-  background-color: #438bbd;
+  background-color: #ed5180;
   border: none;
   padding: 0px 15px;
   border-radius: 0 0.35em 0.35em 0;
@@ -39,7 +44,7 @@ input {
   width: 100%;
   background-color: #edeff0;
   padding: 10px 15px;
-  border: 3px solid #d7dbdf;
+  border: 3px solid #fed000;
   border-right: none;
   border-radius: 0.35em 0 0 0.35em;
   outline: none;
@@ -52,7 +57,7 @@ input {
 
 .main-nav a {
   display: block;
-  background: #438bbd;
+  background: #ed5180;
   border-radius: 3px;
   padding: 5px;
   color: #fff;
@@ -61,7 +66,8 @@ input {
 .main-nav .active,
 .main-nav a:hover,
 .search-form button:hover {
-  background-color: #275270;
+  box-shadow:  inset -6px -17px 127px -21px rgba(46,40,48,0.8);
+  background-color: darkgrey;
 }
 
 .photo-container ul {
@@ -117,7 +123,7 @@ input {
     display: flex;
     justify-content: center;
   }
-  
+
   .main-nav li {
     margin: 10px;
     width: 100px;
