@@ -11,6 +11,10 @@ class SearchForm extends Component {
         };
     }
 
+    /**
+     * Flickr supports search with multiple tags. If the user enters more than one tag, either comma or space separated
+     * the string sent to the searchTerm function is adjusted so that it matches the format needed for the API call
+     */
     onSearchChange = () => {
         let searchTags = '';
         let tags = [];
@@ -35,6 +39,10 @@ class SearchForm extends Component {
         this.setState({searchText: searchTags});
     }
 
+    /**
+     * When the form is submitted, the input field is reset and the user is redirected to a page with the results
+     * @param {Event} event
+     */
     handleOnSubmit = (event) => {
         event.preventDefault();
         this.props.history.push( `/search/${this.state.searchText}`);

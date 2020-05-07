@@ -22,12 +22,21 @@ class App extends Component {
         };
     }
 
+    /**
+     * When the component is mounted on the DOM tree, the 3 arrays for the default tags are populated
+     */
     componentDidMount() {
         for (let i = 0; i < this.defaultTags.length; i++) {
             this.searchTerm(this.defaultTags[i]);
         }
     }
 
+    /**
+     * It triggers the API call with the given search term
+     * If there is no term passed in, the Route `/:tag` will match as `/search` and will be executed so that's why the code executes
+     * only when the search term is different than `search`
+     * @param {String} term
+     */
     searchTerm = (term) => {
         this.setState({loading: true});
         if (term !== "search") {
@@ -58,9 +67,12 @@ class App extends Component {
                     />
                     <Route exact={true} path="/error/no-tags" component={NoTags}/>
                     <Route exact path="/:tag" render={(props) => {
+                        //if there is no term passed in, meaning the url is `/search` it redirects to another page
                         if(props.match.params.tag === "search") {
                             return (<Redirect to="/error/no-tags"/>);
                         }
+                        /*if the tag is one of the this.state's properties, there is no need for the searchTerm function
+                        to be passed in as prop to PhotoContainer. The data is retrieved from the array directly*/
                         else if (this.state.hasOwnProperty(props.match.params.tag)) {
                             return (
                                 <PhotoContainer tag={props.match.params.tag} photos={this.state[props.match.params.tag]}
